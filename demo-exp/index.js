@@ -42,7 +42,9 @@ app.post("/api/courses/", (req, res) => {
 app.put("/api/courses/:id", (req, res) => {
   const course = courses.find((c) => c.id === parseInt(req.params.id));
   if (!course) {
-    return res.status(404).send("The requested ID is not found in the courses");
+    return res
+      .status(404)
+      .send("The requested ID is not found in the courses!!");
   }
   const { error } = validateCourse(req.body);
   if (error) {
